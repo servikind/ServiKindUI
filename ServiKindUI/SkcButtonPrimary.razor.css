@@ -1,0 +1,24 @@
+button {
+    background-color: var(--main-color);
+    color: var(--base-color);
+    border: none;
+    border-radius: 4px;
+    padding-block: 0.8rem;
+    padding-inline-start: 1.6rem;
+    padding-inline-end: 1.2rem;
+    cursor: pointer;
+    letter-spacing: 0.4rem;
+}
+
+    button:hover {
+        background-color: var(--main-color-dark-1);
+    }
+
+    button:active {
+        background-color: var(--main-color-dark-2);
+    }
+
+    button:disabled {
+        background-color: var(--disabled-color);
+        cursor: default;
+    }

@@ -1,0 +1,25 @@
+::deep .skc-input-textarea {
+    border: solid 1px var(--subborder-color);
+    border-radius: 2px;
+    padding-block: 0.8rem;
+    padding-inline: 0.8rem;
+    cursor: text;
+    max-width: 100%;
+}
+
+    ::deep .skc-input-textarea:focus {
+        background-color: var(--main-color-light);
+        border-color: var(--main-color);
+    }
+
+    ::deep .skc-input-textarea:disabled {
+        background-color: var(--subdisabled-color);
+        border-color: var(--disabled-color);
+        color: var(--subtext-color);
+        cursor: default;
+    }
+
+::deep .invalid {
+    background-color: var(--error-color-light);
+    border-color: var(--error-color);
+}

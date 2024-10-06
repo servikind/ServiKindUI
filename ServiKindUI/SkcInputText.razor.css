@@ -1,0 +1,25 @@
+::deep .skc-input-text {
+    border: solid 1px var(--subborder-color);
+    border-radius: 2px;
+    padding-block: 0.8rem;
+    padding-inline: 0.8rem;
+    cursor: text;
+}
+
+    ::deep .skc-input-text:focus {
+        background-color: var(--main-color-light);
+        border-color: var(--main-color);
+    }
+
+    ::deep .skc-input-text:disabled {
+        background-color: var(--subdisabled-color);
+        border-color: var(--disabled-color);
+        color: var(--subtext-color);
+        cursor: default;
+    }
+
+
+::deep .invalid {
+    background-color: var(--error-color-light);
+    border-color: var(--error-color);
+}

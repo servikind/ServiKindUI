@@ -1,0 +1,213 @@
+﻿@using ServiKindUI
+
+@rendermode @(new InteractiveServerRenderMode(prerender: true))
+
+@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<!-- Playground -->
+<main>
+	<section>
+		<h2>EditForm関連</h2>
+		<div>
+			<EditForm FormName="StreamFormData" Model="@model" OnValidSubmit="@HandleValidSubmit">
+				<DataAnnotationsValidator />
+
+				<div>
+					<div>
+						<SkcLabel For="inputtext">入力欄</SkcLabel>
+					</div>
+					<div>
+						<SkcInputText Id="inputtext" @bind-Value="model.InputText" />
+					</div>
+					<div>
+						<SkcValidationMessage For="@(() => model.InputText)" />
+					</div>
+				</div>
+
+				<div>
+					<div>
+						<SkcLabel For="inputtext-disabled">入力欄（入力不可）</SkcLabel>
+					</div>
+					<div>
+						<SkcInputText Id="inputtext-disabled" @bind-Value="model.InputText" Disabled />
+					</div>
+				</div>
+
+				<div style="width: 50rem;">
+					<div>
+						<SkcLabel For="inputtext-disabled">入力欄（幅設定）</SkcLabel>
+					</div>
+					<div>
+						<SkcInputText Id="inputtext-disabled" @bind-Value="model.InputText" Disabled Width="100%" />
+					</div>
+				</div>
+
+				<div>
+					<div>
+						<SkcLabel For="inputtextarea">入力欄（複数行）</SkcLabel>
+					</div>
+					<div>
+						<SkcInputTextArea Id="inputtextarea" @bind-Value="model.InputTextArea" />
+					</div>
+					<div>
+						<SkcValidationMessage For="@(() => model.InputTextArea)" />
+					</div>
+				</div>
+
+				<div>
+					<div>
+						<SkcLabel For="inputtextarea-disabled">入力欄（複数行）（入力不可）</SkcLabel>
+					</div>
+					<div>
+						<SkcInputTextArea Id="inputtextarea-disabled" @bind-Value="model.InputTextArea" Disabled />
+					</div>
+					<div>
+						<SkcValidationMessage For="@(() => model.InputTextArea)" />
+					</div>
+				</div>
+
+				<div>
+					<div>
+						<SkcLabel For="inputtextarea-disabled">入力欄（複数行）（行数設定）</SkcLabel>
+					</div>
+					<div>
+						<SkcInputTextArea Id="inputtextarea-disabled" @bind-Value="model.InputTextArea" Rows="10" />
+					</div>
+					<div>
+						<SkcValidationMessage For="@(() => model.InputTextArea)" />
+					</div>
+				</div>
+
+				<div style="width: 50rem;">
+					<div>
+						<SkcLabel For="inputtextarea-disabled">入力欄（複数行）（幅設定）</SkcLabel>
+					</div>
+					<div>
+						<SkcInputTextArea Id="inputtextarea-disabled" @bind-Value="model.InputTextArea" Width="100%" />
+					</div>
+					<div>
+						<SkcValidationMessage For="@(() => model.InputTextArea)" />
+					</div>
+				</div>
+
+				<div>
+					<div>
+						<SkcLabel For="checkbox">チェックボックス</SkcLabel>
+					</div>
+					<div>
+						<SkcCheckboxForm Id="checkbox" @bind-Value="model.Checkbox" Text="チェック" />
+					</div>
+					<div>
+						<SkcValidationMessage For="@(() => model.Checkbox)" />
+					</div>
+				</div>
+				<div>
+					<div>
+						<SkcLabel For="checkbox-disabled">チェックボックス（入力不可）</SkcLabel>
+					</div>
+					<div>
+						<SkcCheckboxForm Id="checkbox-disabled" @bind-Value="model.Checkbox" Text="チェック" Disabled />
+					</div>
+					<div>
+						<SkcValidationMessage For="@(() => model.Checkbox)" />
+					</div>
+				</div>
+
+				<div>
+					<div>
+						<h3>ボタン（通常）</h3>
+					</div>
+					<div>
+						<SkcButtonPrimary Type="submit">Submit</SkcButtonPrimary>
+					</div>
+				</div>
+				<div>
+					<div>
+						<h3>ボタン（通常）（無効）</h3>
+					</div>
+					<div>
+						<SkcButtonPrimary Type="submit" Disabled>Submit</SkcButtonPrimary>
+					</div>
+				</div>
+				<div>
+					<div>
+						<h3>ボタン（キャンセル）</h3>
+					</div>
+					<div>
+						<SkcButtonCancel Type="submit">Cancel</SkcButtonCancel>
+					</div>
+				</div>
+				<div>
+					<div>
+						<h3>ボタン（キャンセル）（無効）</h3>
+					</div>
+					<div>
+						<SkcButtonCancel Type="submit" Disabled>Cancel</SkcButtonCancel>
+					</div>
+				</div>
+			</EditForm>
+		</div>
+	</section>
+	<section>
+		<SkcCard>
+			<h2>文字</h2>
+			<div>
+				<div>
+					<h3>見出し</h3>
+				</div>
+				<div>
+					<SkcText Heading="SkcText.TextHeading.H1">見出し1</SkcText>
+				</div>
+				<div>
+					<SkcText Heading="SkcText.TextHeading.H2">見出し2</SkcText>
+				</div>
+				<div>
+					<SkcText Heading="SkcText.TextHeading.H3">見出し3</SkcText>
+				</div>
+				<div>
+					<SkcText Heading="SkcText.TextHeading.H4">見出し4</SkcText>
+				</div>
+				<div>
+					<SkcText Heading="SkcText.TextHeading.H5">見出し5</SkcText>
+				</div>
+				<div>
+					<SkcText Heading="SkcText.TextHeading.H6">見出し6</SkcText>
+				</div>
+
+				<div>
+					<h3>テキスト</h3>
+				</div>
+				<div>
+					<SkcText Type="SkcText.TextType.Title">タイトル</SkcText>
+				</div>
+				<div>
+					<SkcText Type="SkcText.TextType.Subtitle">サブタイトル</SkcText>
+				</div>
+				<div>
+					<SkcText Type="SkcText.TextType.Bold">太字</SkcText>
+				</div>
+				<div>
+					<SkcText Type="SkcText.TextType.Wrap">
+						改行
+						あり
+					</SkcText>
+				</div>
+				<div>
+					<SkcText Type="SkcText.TextType.Normal">通常</SkcText>
+				</div>
+			</div>
+		</SkcCard>
+
+	</section>
+</main>
+
+@code {
+	private MyModel model = new MyModel();
+
+	private void HandleValidSubmit() {
+		// do something
+		System.Diagnostics.Debug.WriteLine("通ってるよ");
+	}
+}

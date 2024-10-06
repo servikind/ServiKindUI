@@ -1,0 +1,39 @@
+﻿@using System.Text
+@using static ServiKindUI.SkcLabel
+
+<span>
+	<input type="checkbox"
+		   class="skc-checkbox"
+		   id="@Id"
+		   disabled="@Disabled"
+		   checked="@Checked"
+		   @onchange="HandleChange" />
+	<SkcLabel For="@Id" FontWeight="LabelFontWeight.Normal">@Text</SkcLabel>
+</span>
+
+
+@code {
+	[Parameter]
+	public EventCallback<bool> OnChanged { get; set; }
+
+	[Parameter]
+	[EditorRequired]
+	public string Id { get; set; } = string.Empty;
+
+	[Parameter]
+	public bool Checked { get; set; } = false;
+
+	[Parameter]
+	public string Text { get; set; } = string.Empty;
+
+	[Parameter]
+	public bool Disabled { get; set; } = false;
+
+	private async Task HandleChange(ChangeEventArgs e) {
+		if (e.Value != null) {
+			bool newValue = (bool)e.Value;
+			Checked = newValue;
+			await OnChanged.InvokeAsync(newValue);
+		}
+	}
+}

@@ -1,0 +1,10 @@
+﻿@typeparam T
+
+<div>
+	<ValidationMessage For="@For" class="skc-validation-message"/>
+</div>
+
+@code {
+	[Parameter]
+	public Expression<Func<T>> For { get; set; } = default!;
+}

@@ -1,0 +1,27 @@
+﻿@using Microsoft.JSInterop
+@inject IJSRuntime JS
+
+<div @ref="loadingOverlayRef" class="loading-overlay" style="display: none;" tabindex="-1">
+	<div class="spinner" />
+</div>
+
+
+@code {
+
+	private ElementReference loadingOverlayRef;
+
+	public void Show() {
+		JS.InvokeVoidAsync("loadingOverlayHelper.show", loadingOverlayRef);
+	}
+
+	public void Hide() {
+		JS.InvokeVoidAsync("loadingOverlayHelper.hide", loadingOverlayRef);
+	}
+
+	protected override async Task OnAfterRenderAsync(bool firstRender) {
+		if (firstRender) {
+			await JS.InvokeVoidAsync("addToBody", loadingOverlayRef);
+		}
+	}
+}
+

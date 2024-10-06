@@ -1,0 +1,316 @@
+:root {
+    color-scheme: normal;
+    /* HSL形式 */
+    --color-saturation: 63%; /* 彩度 */
+    --color-lightness: 49%; /* 明度 */
+    --lightness-adjustment-light: 41%; /* 明るい色の調整値 */
+    --lightness-adjustment-dark-1: -10%; /* 暗い色の調整値 */
+    --lightness-adjustment-dark-2: -20%; /* より暗い色の調整値 */
+    /* カラーパレット */
+    /* メインカラー */
+    --main-color-hue: 145deg;
+    --main-color: hsl(var(--main-color-hue), var(--color-saturation), var(--color-lightness));
+    --main-color-light: hsl(var(--main-color-hue), var(--color-saturation), calc(var(--color-lightness) + var(--lightness-adjustment-light)));
+    --main-color-dark-1: hsl(var(--main-color-hue), var(--color-saturation), calc(var(--color-lightness) + var(--lightness-adjustment-dark-1)));
+    --main-color-dark-2: hsl(var(--main-color-hue), var(--color-saturation), calc(var(--color-lightness) + var(--lightness-adjustment-dark-2)));
+    /* アクセントカラー */
+    --accent-color-hue: 48deg;
+    --accent-color: hsl(var(--accent-color-hue), var(--color-saturation), var(--color-lightness));
+    --accent-color-light: hsl(var(--accent-color-hue), var(--color-saturation), calc(var(--color-lightness) + var(--lightness-adjustment-light)));
+    --accent-color-dark-1: hsl(var(--accent-color-hue), var(--color-saturation), calc(var(--color-lightness) + var(--lightness-adjustment-dark-1)));
+    --accent-color-dark-2: hsl(var(--accent-color-hue), var(--color-saturation), calc(var(--color-lightness) + var(--lightness-adjustment-dark-2)));
+    /* エラーカラー */
+    --error-color-hue: 0deg;
+    --error-color: hsl(var(--error-color-hue), var(--color-saturation), var(--color-lightness));
+    --error-color-light: hsl(var(--error-color-hue), var(--color-saturation), calc(var(--color-lightness) + var(--lightness-adjustment-light)));
+    --error-color-dark-1: hsl(var(--error-color-hue), var(--color-saturation), calc(var(--color-lightness) + var(--lightness-adjustment-dark-1)));
+    --error-color-dark-2: hsl(var(--error-color-hue), var(--color-saturation), calc(var(--color-lightness) + var(--lightness-adjustment-dark-2)));
+    /* RGB形式 */
+    --base-color: #ffffff;
+    --base-color-complement: #000000;
+    --base-color-complement-transparent-10: rgba(0, 0, 0, 0.1);
+    --base-color-complement-transparent-50: rgba(0, 0, 0, 0.5);
+    --subtext-color: #666666;
+    --border-color: #c9c9c9;
+    --subborder-color: #dcdcdc;
+    --disabled-color: #cccccc;
+    --subdisabled-color: #f5f5f5;
+    /* z-index */
+    --loading-overlay-z-index: 1000;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  content: none;
+}
+
+*::placeholder {
+  opacity: 1;
+  color: rgb(117, 117, 117);
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.5;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color: black;
+  scrollbar-gutter: stable
+}
+
+body {
+  font-family:
+    "Hiragino Kaku Gothic ProN", "Hiragino Sans", /* Apple系OS用日本語フォント */
+    Meiryo, /* Microsoft系OS用日本語フォント */
+    "Helvetica Neue", Arial, /* 欧文フォント（あんまり指定する意味が無い気がする。そもそもターゲットに日本以外を想定していない。） */
+    sans-serif;
+    font-size: 1.6rem;
+    cursor: default;
+    background-color: var(--base-color);
+    color: var(--text-color);
+}
+
+
+html,body,address,article,aside,footer,header,h1,h2,h3,h4,h5,h6,hgroup,main,nav,section,search,blockquote,dd,div,dl,dt,figcaption,figure,hr,li,menu,ol,p,pre,ul,a,abbr,b,bdi,bdo,br,cite,code,data,dfn,em,i,kbd,mark,q,rp,rt,ruby,s,samp,small,span,strong,sub,sup,time,u,var,wbr,img,caption,col,colgroup,table,tbody,td,tfoot,th,thead,tr,button,datalist,fieldset,form,input,label,legend,meter,optgroup,option,output,progress,select,textarea,details,dialog,summary {
+  margin: 0;
+  padding: 0;
+}
+
+address,article,aside,footer,header,h1,h2,h3,h4,h5,h6,hgroup,main,nav,section,search,blockquote,dd,div,dl,dt,figcaption,figure,hr,li,menu,ol,p,pre,ul,a,abbr,b,bdi,bdo,br,cite,code,data,dfn,em,i,kbd,mark,q,ruby,s,samp,small,span,strong,sub,sup,time,u,var,wbr,img,caption,col,colgroup,table,tbody,td,tfoot,th,thead,tr,button,datalist,fieldset,form,input,label,legend,meter,optgroup,option,output,progress,select,textarea,details,dialog,summary {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  color: inherit;
+  text-decoration: inherit;
+  line-height: inherit;
+  background-color: transparent;
+  vertical-align: inherit;
+  text-align: inherit;
+  cursor: inherit;
+  text-transform: none;
+}
+
+ul,ol,menu {
+  list-style: none;
+}
+
+input,textarea,select {
+  border-style: none;
+  border-color: black;
+  border-width: 1px;
+}
+
+input:focus-visible,textarea:focus-visible,select:focus-visible {
+  outline-style: none;
+  outline-color: black;
+  outline-width: 1px;
+  outline-offset: 0;
+}
+
+textarea:not([rows]) {
+  min-height: 8rem;
+}
+
+select {
+  appearance: none; 
+}
+
+img {
+  max-width: 100%;
+  display: inline;
+}
+
+hr {
+  border-block-start-style: solid;
+  border-block-end-style: none;
+  border-inline-start-style: none;
+  border-inline-end-style: none;
+  border-width: 1px;
+  border-color: black;
+}
+
+table {
+  border-collapse: collapse;
+  border-width: 1px;
+  border-color: black;
+  border-style: none;
+  border-spacing: 0;
+}
+
+fieldset {
+  border-style: none;
+  border-color: black;
+  border-width: 1px;
+  min-width: 0;
+}
+
+legend {
+  border-style: none;
+  border-color: black;
+  border-width: 1px;
+  width: 100%;
+}
+
+input[type="radio"] {
+  appearance: none;
+  outline: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: transparent;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 50%;
+  border: 0.1rem solid black;
+  position: relative;
+  top: -0.1rem;
+}
+
+input[type="radio"]:checked::before {
+  content: '';
+  display: block;
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  outline: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: transparent;
+  display: inline-block;
+  vertical-align: middle;
+  border: 0.1rem solid black;
+  position: relative;
+  top: -0.1rem;
+}
+
+input[type="checkbox"]:checked {
+  background-color: black;
+}
+
+input[type="checkbox"]:checked::before {
+  content: '';
+  display: block;
+  width: 0.8rem;
+  height: 1.6rem;
+  border-style: solid;
+  border-width: 0 0.2rem 0.2rem 0;
+  border-color: white;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%) rotate(45deg);
+}
+
+input[list]::-webkit-calendar-picker-indicator {
+  display: none !important;
+}
+
+input[list]::-moz-calendar-picker-indicator {
+  display: none !important;
+}
+
+
+/* メーターは正しく動作しない可能性があります。 */
+meter {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: middle;
+  border-radius: 0.4rem;
+  height: 0.8rem;
+  background-image: none;
+  background-color: #EFEFEF;
+  border: solid 1px rgba(118, 118, 118, 0.3);
+}
+
+meter::-webkit-meter-bar {
+  height: 0.8rem;
+  background-color: #EFEFEF;
+  border: solid 1px rgba(118, 118, 118, 0.3);
+}
+
+meter::-moz-meter-bar {
+  background-image: none;
+}
+
+meter:-moz-meter-optimum::-moz-meter-bar {
+  background-color: #107C10;
+}
+
+meter:-moz-meter-sub-optimum::-moz-meter-bar {
+  background-color: #FFB900;
+}
+
+meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+  background-color: #D83B08;
+}
+
+meter::-webkit-meter-optimum-value {
+  background-color: #107C10;
+}
+
+meter::-webkit-meter-suboptimum-value {
+  background-color: #FFB900;
+}
+
+meter::-webkit-meter-even-less-good-value {
+  background-color: #D83B08;
+}
+
+/* プログレスは正しく動作しない可能性があります。 */
+progress {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: middle;
+  border-radius: 0.4rem;
+  height: 0.8rem;
+  background-color: #EFEFEF;
+  border: solid 1px rgba(118, 118, 118, 0.3);
+  overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+  height: 0.7rem;
+  background-color: #EFEFEF;
+  border: none;
+}
+
+progress::-webkit-progress-value {
+  background-color: rgb(0, 100, 180);
+}
+
+summary {
+  display: block;
+}
+
+dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: solid 1px black;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+button {
+  border: none;
+}

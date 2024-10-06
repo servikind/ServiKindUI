@@ -1,0 +1,48 @@
+﻿@using System.Text
+
+<label class="@CreateClassString()" for="@For">@ChildContent</label>
+
+@code {
+
+	public enum LabelFontWeight {
+		Bold,
+		Normal
+	}
+
+	public enum LabelCursor {
+		Pointer,
+		Normal
+	}
+
+	[Parameter]
+	[EditorRequired]
+	public string For { get; set; } = string.Empty;
+
+	[Parameter]
+	public LabelFontWeight FontWeight { get; set; } = LabelFontWeight.Bold;
+
+	[Parameter]
+	public LabelCursor Cursor { get; set; } = LabelCursor.Normal;
+
+	[Parameter]
+	[EditorRequired]
+	public RenderFragment ChildContent { get; set; } = default!;
+
+	private string CreateClassString() {
+		var classNames = new StringBuilder();
+		switch (FontWeight) {
+			case LabelFontWeight.Bold:
+				classNames.Append("bold");
+				break;
+		}
+		switch (Cursor) {
+			case LabelCursor.Pointer:
+				if (classNames.Length != 0) {
+					classNames.Append(" ");
+				}
+				classNames.Append("pointer");
+				break;
+		}
+		return classNames.ToString();
+	}
+}

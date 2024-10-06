@@ -1,0 +1,69 @@
+﻿@{
+	var className = GetTextTypeClass(Type);
+}
+
+@switch (Heading) {
+	case TextHeading.H1:
+		<h1 class="@className">@ChildContent</h1>
+		break;
+	case TextHeading.H2:
+		<h2 class="@className">@ChildContent</h2>
+		break;
+	case TextHeading.H3:
+		<h3 class="@className">@ChildContent</h3>
+		break;
+	case TextHeading.H4:
+		<h4 class="@className">@ChildContent</h4>
+		break;
+	case TextHeading.H5:
+		<h5 class="@className">@ChildContent</h5>
+		break;
+	case TextHeading.H6:
+		<h6 class="@className">@ChildContent</h6>
+		break;
+	default:
+		<span class="@className">@ChildContent</span>
+		break;
+}
+
+@code {
+	[Parameter]
+	public TextType Type { get; set; } = TextType.Normal;
+
+	[Parameter]
+	public TextHeading Heading { get; set; } = TextHeading.Unspecified;
+
+	[Parameter]
+	[EditorRequired]
+	public RenderFragment ChildContent { get; set; } = default!;
+
+
+	public enum TextType {
+		Title,
+		Subtitle,
+		Bold,
+		Wrap,
+		Normal
+	}
+
+	public enum TextHeading {
+		H1,
+		H2,
+		H3,
+		H4,
+		H5,
+		H6,
+		Unspecified
+	}
+
+	private string GetTextTypeClass(TextType type) {
+		return type switch {
+			TextType.Title => "title",
+			TextType.Subtitle => "subtitle",
+			TextType.Bold => "bold",
+			TextType.Wrap => "wrap",
+			TextType.Normal => "normal",
+			_ => "normal"
+		};
+	}
+}

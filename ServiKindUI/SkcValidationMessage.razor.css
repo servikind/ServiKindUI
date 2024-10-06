@@ -1,0 +1,4 @@
+::deep .skc-validation-message {
+    color: var(--error-color);
+    cursor: text;
+}

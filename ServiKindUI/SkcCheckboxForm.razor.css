@@ -1,0 +1,47 @@
+span {
+    cursor: pointer;
+    display: inline-block;
+    border: 1px transparent dashed;
+}
+
+    span:has(input:focus) {
+        border-color: var(--base-color-complement);
+    }
+
+
+.disabled {
+    cursor: default;
+}
+
+::deep .skc-checkbox-form {
+    border-radius: 2px;
+    border-color: var(--border-color);
+}
+
+    ::deep .skc-checkbox-form:focus {
+        background-color: var(--main-color-light);
+        border-color: var(--main-color);
+    }
+
+    ::deep .skc-checkbox-form:disabled {
+        background-color: var(--subdisabled-color);
+        border-color: var(--disabled-color);
+    }
+
+    ::deep .skc-checkbox-form:checked {
+        background-color: var(--main-color);
+        border-color: var(--main-color);
+    }
+
+        ::deep .skc-checkbox-form:checked:disabled {
+            background-color: var(--disabled-color);
+            border-color: var(--disabled-color);
+        }
+
+            ::deep .skc-checkbox-form:checked:disabled::before {
+                border-color: var(--subdisabled-color);
+            }
+
+        ::deep .skc-checkbox-form:checked:focus {
+            border-color: var(--main-color-dark-1);
+        }

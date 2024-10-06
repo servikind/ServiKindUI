@@ -1,0 +1,35 @@
+span {
+    cursor: pointer;
+    display: inline-block;
+}
+
+    span:has() {
+        background-color: var(--main-color-light);
+        border-color: var(--main-color);
+    }
+
+.disabled {
+    cursor: default;
+}
+
+::deep .skc-checkbox {
+    border-radius: 2px;
+    border-color: var(--border-color);
+}
+
+    ::deep .skc-checkbox:disabled {
+        background-color: var(--subdisabled-color);
+        border-color: var(--disabled-color);
+    }
+
+    ::deep .skc-checkbox:checked {
+        background-color: var(--main-color);
+    }
+
+        ::deep .skc-checkbox:checked:disabled {
+            background-color: var(--disabled-color);
+        }
+
+            ::deep .skc-checkbox:checked:disabled::before {
+                border-color: var(--subdisabled-color);
+            }

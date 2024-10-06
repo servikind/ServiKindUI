@@ -1,0 +1,22 @@
+﻿@using System.Text
+
+<div style="@CreateStyleString()">
+	@ChildContent
+</div>
+
+@code {
+	[Parameter]
+	public string Padding { get; set; } = string.Empty;
+
+	[Parameter]
+	[EditorRequired]
+	public RenderFragment ChildContent { get; set; } = default!;
+
+	private string CreateStyleString() {
+		var style = new StringBuilder();
+		if (!string.IsNullOrWhiteSpace(Padding)) {
+			style.Append($"padding: {Padding};");
+		}
+		return style.ToString();
+	}
+}
