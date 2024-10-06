@@ -22,3 +22,7 @@ button {
         background-color: var(--disabled-color);
         cursor: default;
     }
+
+    button:focus {
+        outline-color: var(--main-color-dark-2);
+    }
